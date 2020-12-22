@@ -34,10 +34,12 @@ def main(argv):
         password = password_text.rstrip("\n")
         count = pwned_api_check(password)
         if count:
-          print(f"{password} was found {count} times")
+          print(f"{password} was seen {count} times. Please do not use this password.")
         else:
-          print(f"{password} not found, it's safe to use!")
-  return "done!"
+          print(f"{password} was not seen, it's safe to use!")
+  return "password check done!"
 
 if __name__ == "__main__":
+  # please enter the file path/file name after executing the script
+  # Example: python3 password_checker.py password.txt
   sys.exit(main(sys.argv[1:]))
